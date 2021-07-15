@@ -1,0 +1,47 @@
+{
+  "name": "photos-gallary",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@articulate/react-animate-on-scroll": "^2.3.0",
+    "@reduxjs/toolkit": "^1.6.0",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^12.8.3",
+    "animate.css": "^4.1.1",
+    "axios": "^0.21.1",
+    "react": "^17.0.2",
+    "react-animate-on-scroll": "^2.1.5",
+    "react-dom": "^17.0.2",
+    "react-icons": "^4.2.0",
+    "react-infinite-scroll-component": "^6.1.0",
+    "react-lazy-load-image-component": "^1.5.1",
+    "react-redux": "^7.2.4",
+    "react-scripts": "4.0.3",
+    "web-vitals": "^1.1.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
