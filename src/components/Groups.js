@@ -21,7 +21,7 @@ const Groups = () => {
          url:'https://api.unsplash.com/collections/?client_id=TN6hCq_n0CVsLH-r42QjT1j17EfoZDZAkjShVpl631c',
          params:{per_page:per_page , page:page}
       }).then((response)=>{
-        console.log(response.data)
+        // console.log(response.data)
          dispatch(collectionSliceActions.fetchData({data:response.data}))
       }).catch((error)=>{
          console.log(error)
@@ -73,7 +73,7 @@ useEffect(()=>{
              <p className='collection_total_photos'></p>
            </div>
     </li>
-    <li>
+    {/* <li>
       <div className="img_container group_icon">
         <img src="https://images.unsplash.com/photo-1508921912186-1d1a45ebb3c1?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGhvdG98ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80" alt="" />
         
@@ -82,7 +82,7 @@ useEffect(()=>{
              <p className='collection_title'>Favorits</p>
              <p className='collection_total_photos'>{0}</p>
       </div>
-    </li>
+    </li> */}
    </ul>
    {/* ///////////////// */}
 

@@ -1,19 +1,15 @@
 import React from 'react'
 import './SingleGalleryImage.style.css'
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-const SingleGalleryImage = ({urls , likes , user}) => {
+import { useDispatch } from 'react-redux'
+import {imageComponentSliceActions} from '../redux-setup/imageComponentSlice'
+// import { LazyLoadImage } from 'react-lazy-load-image-component';
+const SingleGalleryImage = ({urls , likes , user , id}) => {
+  const dispatch = useDispatch()
+  const imgheight = '100%';
  return (
-  <div className='gallery_image_container'>
+  <div className='gallery_image_container' onClick={()=> dispatch(imageComponentSliceActions.openCopmonent({idValue:id}))}>
 
-    <LazyLoadImage
-      alt='.'
-      height={350}
-      src={urls.regular} 
-      effect="blur"
-      placeholderSrc={urls.regular}
-      // width={250} 
-      />
-    {/* <img src={urls.regular} alt="" /> */}
+    <img src={urls.regular} alt="" />
     <div className="owner_data">
         <div className="owner_info">
             <h3>{user.name}</h3>

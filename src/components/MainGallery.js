@@ -31,6 +31,7 @@ const MainGallery = () => {
       }).then((response)=>{
          if(search === ''){
             dispatch(gallerySliceActions.fetchData({data:response.data}))
+            console.log(response.data)
             if(response.data.length < per_page - 1){
             dispatch(gallerySliceActions.isHasMore({type:false}))
          }
