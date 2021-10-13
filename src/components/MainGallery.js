@@ -103,7 +103,7 @@ const MainGallery = () => {
          {
             galleryData.map((image)=>{
                return <ScrollAnimation animateIn='animate__fadeInUp' animateOnce={true}>   
-                           <SingleGalleryImage key={image.id} {...image}/> 
+                           <SingleGalleryImage key={image.id} {...image}/>     
                       </ScrollAnimation>
             })
          }
