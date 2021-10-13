@@ -9,6 +9,7 @@ const ImageDetailsComponent = () => {
     const isLoading = useSelector((state)=> state.imageComponent.isLoading)
     const imageId = useSelector((state)=> state.imageComponent.photoId)
     const imageData = useSelector((state)=> state.imageComponent.imageData)
+    const apiAccessKey = `?client_id=${process.env.REACT_APP_ACCESS_KEY}`
     const dispatch = useDispatch()
 
     //fetch image data from API
@@ -16,7 +17,7 @@ const ImageDetailsComponent = () => {
         dispatch(imageComponentSliceActions.isLoading({value:true}))
          axios({
             method:'GET',
-            url:`https://api.unsplash.com/photos/${imageId}/?client_id=TN6hCq_n0CVsLH-r42QjT1j17EfoZDZAkjShVpl631c`,
+            url:`https://api.unsplash.com/photos/${imageId}/${apiAccessKey}`,
         }).then((response)=>{
             console.log(response.data)
             dispatch(imageComponentSliceActions.fetchImageData({data:response.data}))

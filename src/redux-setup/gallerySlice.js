@@ -34,12 +34,15 @@ const gallerySlice = createSlice({
    state.data = []
    state.page = 1
    if(action.payload.title === 'LGBT | LGBTIQ+'){
-    state.currentCollectionName = ' شواذ خولات مقرفين'
+    state.currentCollectionName = 'No Gayes Here '
+    state.currentFetchUrl = 'no'
+    state.data = []
    }else{
     state.currentCollectionName = action.payload.title
-   }
-   state.searchQuery = ''
+     state.searchQuery = ''
    state.currentFetchUrl = action.payload.url
+   }
+  
   },
   setDefaultUrl(state){
    state.data = []

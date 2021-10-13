@@ -26,8 +26,8 @@ const Header = () => {
   </div>
  <div className="search_container">
   <form onSubmit={onSubmitHandller}>
-    <input value={searchValue} onChange={(e)=>setSearchValue(e.target.value)} type="text" id='search' className='search_input' required />
-    <label htmlFor="search" className='search_icon'><AiOutlineSearch/></label>
+    <input value={searchValue} onChange={(e)=>setSearchValue(e.target.value)} type="text" id='search_input' className='search_input' required />
+    <label htmlFor="search_input" className='search_icon'><AiOutlineSearch/></label>
   </form>
  </div>
  <div className="subMenu" onClick={()=> dispatch(gallerySliceActions.isSubMenuActive())}>

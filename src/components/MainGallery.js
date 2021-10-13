@@ -1,6 +1,5 @@
 import React , {useEffect} from 'react'
 import './MainGallery.style.css'
-import { FaFilter ,FaSortAlphaDownAlt ,FaShareSquare } from "react-icons/fa";
 import axios from 'axios'
 import SingleGalleryImage from './SingleGalleryImage';
 import {gallerySliceActions} from '../redux-setup/gallerySlice'
@@ -18,6 +17,7 @@ const MainGallery = () => {
    const isHasError = useSelector((state)=>state.gallery.hasError)
    const search = useSelector((state)=>state.gallery.searchQuery)
    const collectionTitle = useSelector((state)=>state.gallery.currentCollectionName)
+   const apiAccessKey = `?client_id=${process.env.REACT_APP_ACCESS_KEY}`
    const dispatch = useDispatch()
 
    // fetch data handller
@@ -26,12 +26,12 @@ const MainGallery = () => {
       dispatch(gallerySliceActions.isHasMore({type:true}))
        axios({
          method:'GET',
-         url:`${fetchUrl}/?client_id=TN6hCq_n0CVsLH-r42QjT1j17EfoZDZAkjShVpl631c&query=${search}`,
+         url:`${fetchUrl}/${apiAccessKey}&query=${search}`,
          params:{per_page:per_page , page:page}
       }).then((response)=>{
          if(search === ''){
             dispatch(gallerySliceActions.fetchData({data:response.data}))
-            console.log(response.data)
+            // console.log(response.data)
             if(response.data.length < per_page - 1){
             dispatch(gallerySliceActions.isHasMore({type:false}))
          }
@@ -42,8 +42,6 @@ const MainGallery = () => {
             dispatch(gallerySliceActions.isHasMore({type:false}))
          }
          }
-         
-         
       }).catch((error)=>{
          console.log(error)
          dispatch(gallerySliceActions.setHasError({err:true}))
@@ -56,12 +54,24 @@ const MainGallery = () => {
       dispatch(gallerySliceActions.increasePage())
    }
 
- 
- return (
+   useEffect(()=>{
+      const scrollEvent = window.addEventListener('scroll' , ()=>{
+        if((window.innerHeight + window.scrollY)>= document.body.scrollHeight - 800){
+           console.log('fire')
+        }
+      })
+
+      return ()=>{
+         window.removeEventListener('scroll' , scrollEvent)
+      }
+   },[])
+
+ return <>
   <section>
    <div className="gallery_header_container">
       <div className="section_name">
        <p>{collectionTitle}</p>
+       
       </div>
       <div className="filter_options">
          {/* <button className='btn filter_btn'><FaSortAlphaDownAlt className='group_icon'/>Upload Date</button>
@@ -72,36 +82,36 @@ const MainGallery = () => {
 
    {/* /// gallery container  */}
     <InfiniteScroll
-  dataLength={galleryData.length}
-  next={handleNextPage}
-  hasMore={hasMore}
-  loader={<div className='gallery_loading'>
-      {
-         isHasError && <h4>Error 403</h4>
-      }
-      {
-         !isHasError && <h4>Loading</h4>
-      }
-  </div>}
-  endMessage={
-    <p className='gallery_loading'>
-       {galleryData.length===0 && <b>sorry no matching results</b>}
-         { galleryData.length>0 &&   <b>You have seen it all :)</b>}
-    </p>
-  }>
+         dataLength={galleryData.length}
+         next={handleNextPage}
+         hasMore={hasMore}
+         loader={<div className='gallery_loading'>
+               {
+                  isHasError && <h4>Error 403</h4>
+               }
+               {
+                  !isHasError && <h4>Loading</h4>
+               }
+         </div>}
+         endMessage={
+            <p className='gallery_loading'>
+               {galleryData.length===0 && <b>sorry no matching results</b>}
+                  { galleryData.length>0 &&   <b>You have seen it all :)</b>}
+            </p>
+            }>
    <div className="gallery_container">  
-   {
-       galleryData.map((image)=>{
-          return <ScrollAnimation animateIn='animate__fadeInUp' animateOnce={true}>   
-                     <SingleGalleryImage key={image.id} {...image}/> 
-             </ScrollAnimation>
-       })
-    }
-     </div>
+         {
+            galleryData.map((image)=>{
+               return <ScrollAnimation animateIn='animate__fadeInUp' animateOnce={true}>   
+                           <SingleGalleryImage key={image.id} {...image}/> 
+                      </ScrollAnimation>
+            })
+         }
+   </div>
      
 </InfiniteScroll>
   </section>
- )
+ </>
 }
 
 export default MainGallery

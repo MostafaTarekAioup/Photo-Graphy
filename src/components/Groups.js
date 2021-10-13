@@ -12,13 +12,14 @@ const Groups = () => {
   const per_page = useSelector((state)=>state.collections.per_page)
   const collectionData = useSelector((state)=>state.collections.data)
   const isSubMenuActive = useSelector((state)=>state.gallery.subMenuActive)
+  const apiAccessKey = `?client_id=${process.env.REACT_APP_ACCESS_KEY}`
   const [searchValue , setSearchValue] = useState('')
   
 
   const fetchData = async()=>{
       await axios({
          method:'GET',
-         url:'https://api.unsplash.com/collections/?client_id=TN6hCq_n0CVsLH-r42QjT1j17EfoZDZAkjShVpl631c',
+         url:`https://api.unsplash.com/collections/${apiAccessKey}`,
          params:{per_page:per_page , page:page}
       }).then((response)=>{
         // console.log(response.data)
