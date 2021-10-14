@@ -32,6 +32,7 @@ const ImageDetailsComponent = () => {
             fetchImageData()
             console.log(imageData)
         }
+        // eslint-disable-next-line
     },[imageId])
     return (
         <div className={`${isComponentOpen ? 'image_component image_component_active':'image_component'}`}>

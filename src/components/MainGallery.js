@@ -49,6 +49,7 @@ const MainGallery = () => {
    }
    useEffect(()=>{
       fetchData()
+      // eslint-disable-next-line
    },[page , fetchUrl , search])
    const handleNextPage = ()=>{
       dispatch(gallerySliceActions.increasePage())

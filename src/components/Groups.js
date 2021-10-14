@@ -48,6 +48,7 @@ const Groups = () => {
 
 useEffect(()=>{
   fetchData()
+  // eslint-disable-next-line
 },[page])
 
  return (
