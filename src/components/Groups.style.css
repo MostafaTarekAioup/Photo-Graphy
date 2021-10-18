@@ -5,13 +5,13 @@
 .favorits_container li {
   width: 100%;
   padding: 5px 10px;
-  margin-top: 10x;
+  margin-top: 10px;
   display: grid;
   grid-template-columns: 40px 1fr;
   align-items: center;
   justify-content: space-between;
   font-size: 1rem;
-  color: aliceblue;
+  color: var(--font-clr);
   padding-left: 30px;
   border-bottom: 1px solid rgb(54, 54, 54);
   cursor: pointer;
@@ -45,8 +45,8 @@
 .gallery_header {
   margin-top: 30px;
   font-size: 1.3rem;
-  color: aliceblue;
-  background-color: rgb(54, 54, 54);
+  color: var(--font-clr);
+  background-color: var(--bg-shade);
   padding: 20px 10px;
   font-weight: 300;
 }
@@ -81,7 +81,7 @@
 .search_input_submenu {
   border-color: transparent;
   padding: 5px;
-  background-color: aliceblue;
+  background-color: rgb(141, 141, 141);
   outline: none;
 }
 .close_btn {
@@ -104,7 +104,7 @@
 .load_more {
   padding: 5px 10px !important;
   text-align: center !important;
-  color: rgb(236, 208, 208) !important;
+  color: var(--font-clr);
   display: block !important;
   cursor: pointer;
   margin-bottom: 30px;
@@ -117,12 +117,12 @@
 }
 .collection_title {
   text-transform: capitalize;
-  color: aliceblue;
+  color: var(--font-clr);
   font-weight: 400;
 }
 .collection_total_photos {
   text-transform: capitalize;
-  color: darkgray;
+  color: rgb(83, 83, 83);
   font-weight: 300;
 }
 @media only screen and (max-width: 700px) {

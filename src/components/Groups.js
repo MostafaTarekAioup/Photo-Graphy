@@ -5,6 +5,7 @@ import {useSelector , useDispatch} from 'react-redux'
 import {collectionSliceActions} from '../redux-setup/collectionsSlice'
 import {gallerySliceActions} from '../redux-setup/gallerySlice'
 import { AiOutlineSearch } from "react-icons/ai";
+import { FaMoon , FaSun } from "react-icons/fa";
 import vomit from '../images/1F92E.svg'
 const Groups = () => {
   const dispatch = useDispatch()
@@ -14,6 +15,11 @@ const Groups = () => {
   const isSubMenuActive = useSelector((state)=>state.gallery.subMenuActive)
   const apiAccessKey = `?client_id=${process.env.REACT_APP_ACCESS_KEY}`
   const [searchValue , setSearchValue] = useState('')
+
+  ///
+
+    const [theme , setTheme] = useState('dark-theme')
+    const [isThemeChanded , setIsThemeChanded] = useState(false)
   
 
   const fetchData = async()=>{
@@ -43,13 +49,25 @@ const Groups = () => {
       }
   // 
     }
-
-
-
 useEffect(()=>{
   fetchData()
   // eslint-disable-next-line
 },[page])
+
+useEffect(()=>{
+  document.documentElement.className = theme
+},[theme])
+
+const toggleTheme = ()=>{
+  if(theme === 'dark-theme'){
+    setTheme('light-theme')
+    setIsThemeChanded(!isThemeChanded)
+  }
+  else{
+    setTheme('dark-theme')
+    setIsThemeChanded(!isThemeChanded)
+  }
+}
 
  return (
   <div>
@@ -62,9 +80,15 @@ useEffect(()=>{
             <input value={searchValue} onChange={(e)=>setSearchValue(e.target.value)} type="text" id='search' className='search_input_submenu' required />
             <button htmlFor="search" className='search_icon_btn'><AiOutlineSearch/></button>
         </form>
+        <div onClick={()=> toggleTheme()} className="toggle_theme">
+            {isThemeChanded && <FaMoon className='theme_icon moon_icon'/>}
+            {!isThemeChanded && <FaSun className='theme_icon sun_icon'/>}
+        </div>
       </div>
    <ul className='favorits_container'>
-    <li onClick={()=>dispatch(gallerySliceActions.setDefaultUrl())} >
+    <li onClick={()=>{dispatch(gallerySliceActions.setDefaultUrl());scrollToTop() ;if(isSubMenuActive === true){
+           dispatch(gallerySliceActions.isSubMenuActive())
+         }}} >
       
       <div className="img_container group_icon">
         <img src='https://cdn.pocket-lint.com/r/s/1200x/assets/images/151442-cameras-feature-stunning-photos-from-the-national-sony-world-photography-awards-2020-image1-evuxphd3mr.jpg' alt="" />
@@ -110,7 +134,7 @@ useEffect(()=>{
                title
              }
              {
-               title === 'LGBT | LGBTIQ+' && <p>خولات  <img className='vomit' src={vomit} alt="." /></p>
+               title === 'LGBT | LGBTIQ+' && <p>  <img className='vomit' src={vomit} alt="." /></p>
              }
              </p>
              <p className='collection_total_photos'>{total_photos}</p>

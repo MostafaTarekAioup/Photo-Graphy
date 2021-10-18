@@ -55,18 +55,6 @@ const MainGallery = () => {
       dispatch(gallerySliceActions.increasePage())
    }
 
-   useEffect(()=>{
-      const scrollEvent = window.addEventListener('scroll' , ()=>{
-        if((window.innerHeight + window.scrollY)>= document.body.scrollHeight - 800){
-           console.log('fire')
-        }
-      })
-
-      return ()=>{
-         window.removeEventListener('scroll' , scrollEvent)
-      }
-   },[])
-
  return <>
   <section>
    <div className="gallery_header_container">

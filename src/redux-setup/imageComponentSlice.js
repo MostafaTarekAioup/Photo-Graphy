@@ -14,11 +14,11 @@ import {createSlice} from '@reduxjs/toolkit'
         initialState:imageComponentInitialState,
         reducers:{
             openCopmonent(state , action){
-                state.isOpen = !state.isOpen
+                state.isOpen = true
                 state.photoId = action.payload.idValue
             },
             closeCopmonent(state){
-                state.isOpen = !state.isOpen
+                state.isOpen = false
             },
             fetchImageData(state , action){
                 state.imageData = action.payload.data

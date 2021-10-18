@@ -7,7 +7,7 @@
 }
 .section_name {
   font-size: 1.3rem;
-  color: aliceblue;
+  color: var(--font-clr);
   font-weight: 300;
   text-transform: capitalize;
 }

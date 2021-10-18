@@ -19,7 +19,7 @@ const ImageDetailsComponent = () => {
             method:'GET',
             url:`https://api.unsplash.com/photos/${imageId}/${apiAccessKey}`,
         }).then((response)=>{
-            console.log(response.data)
+            // console.log(response.data)
             dispatch(imageComponentSliceActions.fetchImageData({data:response.data}))
             dispatch(imageComponentSliceActions.isLoading({value:false}))
         }).catch((err)=>{
@@ -30,12 +30,11 @@ const ImageDetailsComponent = () => {
         if (imageId!== ''){
             dispatch(imageComponentSliceActions.fetchImageData({data:[]}))
             fetchImageData()
-            console.log(imageData)
         }
         // eslint-disable-next-line
     },[imageId])
     return (
-        <div className={`${isComponentOpen ? 'image_component image_component_active':'image_component'}`}>
+        <div onClick={()=> dispatch(imageComponentSliceActions.closeCopmonent())} className={`${isComponentOpen ? 'image_component image_component_active':'image_component'}`}>
             <button className='close_btn' onClick={()=> dispatch(imageComponentSliceActions.closeCopmonent())}>
                 X
             </button>

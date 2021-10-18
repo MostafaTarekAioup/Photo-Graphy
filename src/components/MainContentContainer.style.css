@@ -11,12 +11,12 @@ main {
   overflow-y: auto;
   overflow-x: hidden;
   /* transition: all ease-in-out 0.5s; */
-  background-color: rgb(41, 40, 40);
+  background-color: var(--bcg-clr);
 }
 .sec2 {
   width: 100%;
   min-height: 100vh;
-  border-left: 1px solid rgb(54, 54, 54);
+  border-left: 1px solid var(--bcg-clr);
 }
 
 @media only screen and (max-width: 700px) {

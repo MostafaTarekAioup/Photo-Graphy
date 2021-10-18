@@ -13,7 +13,7 @@ nav {
   display: flex;
   align-items: center;
   font-size: 1.5rem;
-  color: aliceblue;
+  color: var(--font-clr);
 }
 .logo {
   display: flex;
@@ -46,6 +46,7 @@ nav {
   padding: 5px;
   font-size: 1rem;
   border-radius: 5px;
+  background-color: rgb(99, 96, 96);
 }
 .search_input:focus {
   width: 200px;
@@ -54,7 +55,7 @@ nav {
 .search_icon {
   padding: 5px;
   font-size: 1.5rem;
-  color: aliceblue;
+  color: var(--font-clr);
 }
 .search_icon:hover {
   color: rgb(132, 86, 206);

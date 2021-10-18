@@ -6,8 +6,21 @@
   font-family: "Roboto", sans-serif;
 }
 body {
-  background-color: rgb(41, 40, 40);
+  background-color: var(--bcg-clr);
   overflow-x: hidden;
+  transition: all 0.3s linear;
+}
+.dark-theme {
+  --bcg-clr: rgb(41, 40, 40);
+  --font-clr: white;
+  --light-clr: rgba(0, 0, 0, 0.781);
+  --bg-shade: #363636;
+}
+.light-theme {
+  --bcg-clr: white;
+  --font-clr: rgb(41, 40, 40);
+  --light-clr: rgba(158, 158, 158, 0.781);
+  --bg-shade: #e6e6e6;
 }
 
 /* //// scroll bar  */
@@ -47,4 +60,16 @@ body {
 }
 .to_top_btn:hover {
   background-color: rgb(16, 235, 16);
+}
+.theme_icon {
+  font-size: 20px;
+  margin-left: 20px;
+  cursor: pointer;
+  transition: all 0.3s linear;
+}
+.sun_icon {
+  color: white;
+}
+.moon_icon {
+  color: black;
 }
