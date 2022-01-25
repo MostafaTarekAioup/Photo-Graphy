@@ -17,7 +17,7 @@ const MainGallery = () => {
    const isHasError = useSelector((state)=>state.gallery.hasError)
    const search = useSelector((state)=>state.gallery.searchQuery)
    const collectionTitle = useSelector((state)=>state.gallery.currentCollectionName)
-   const apiAccessKey = `?client_id=${process.env.REACT_APP_ACCESS_KEY}`
+   const apiAccessKey = `?client_id=b8bf507eb41946edb729b42140589bee5682c6bee8b04498bf2686b6aaddd610`
    const dispatch = useDispatch()
 
    // fetch data handller
