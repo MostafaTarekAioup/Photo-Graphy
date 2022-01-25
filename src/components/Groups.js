@@ -13,7 +13,7 @@ const Groups = () => {
   const per_page = useSelector((state)=>state.collections.per_page)
   const collectionData = useSelector((state)=>state.collections.data)
   const isSubMenuActive = useSelector((state)=>state.gallery.subMenuActive)
-  const apiAccessKey = `?client_id=${process.env.REACT_APP_ACCESS_KEY}`
+  const apiAccessKey = `?client_id=b8bf507eb41946edb729b42140589bee5682c6bee8b04498bf2686b6aaddd610`
   const [searchValue , setSearchValue] = useState('')
 
   ///
