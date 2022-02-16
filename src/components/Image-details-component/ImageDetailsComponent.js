@@ -13,6 +13,7 @@ const ImageDetailsComponent = () => {
     const dispatch = useDispatch()
 
     //fetch image data from API
+    
     const fetchImageData =  ()=>{
         dispatch(imageComponentSliceActions.isLoading({value:true}))
          axios({

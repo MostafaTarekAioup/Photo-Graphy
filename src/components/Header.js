@@ -54,9 +54,9 @@ useEffect(()=>{
     <label htmlFor="search_input" className='search_icon'><AiOutlineSearch/></label>
   </form>
   <div onClick={()=> toggleTheme()} className="toggle_theme">
-    {/* {isThemeChanded && <FaMoon className='theme_icon moon_icon'/>}
-    {!isThemeChanded && <FaSun className='theme_icon sun_icon'/>} */}
-    <FaSun className='theme_icon moon_icon'/>
+    {isThemeChanded && <FaMoon className='theme_icon moon_icon'/>}
+    {!isThemeChanded && <FaSun className='theme_icon sun_icon'/>}
+    {/* <FaSun className='theme_icon moon_icon'/> */}
   </div>
  </div>
  
