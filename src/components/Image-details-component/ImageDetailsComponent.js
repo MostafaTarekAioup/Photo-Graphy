@@ -56,9 +56,15 @@ const ImageDetailsComponent = () => {
     }
   }
 
+  const handleOutsideClick = (e) => {
+    // Close only if clicking the overlay area (photo_details class)
+    if (e.target.className === "photo_details") {
+      dispatch(imageComponentSliceActions.closeCopmonent())
+    }
+  }
+
   return (
     <div
-      onClick={() => dispatch(imageComponentSliceActions.closeCopmonent())}
       className={`${
         isComponentOpen
           ? "image_component image_component_active"
@@ -71,10 +77,10 @@ const ImageDetailsComponent = () => {
       >
         X
       </button>
-      <div className='photo_details'>
+      <div className='photo_details' onClick={handleOutsideClick}>
         {isLoading && <p className='gallery_loading'>Loading...</p>}
         {!isLoading && (
-          <div className='component_image'>
+          <div className='component_image' onClick={(e) => e.stopPropagation()}>
             <img src={imageData.urls.regular} alt='.' />
             <div className='download_container'>
               <button onClick={handleDownload}>Download</button>
